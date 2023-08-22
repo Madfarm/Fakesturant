@@ -57,5 +57,23 @@ namespace Fakesturant.Services.CouponAPI.Controllers
             return _response;
         }
 
+        [HttpGet("GetByCode/{code}")]
+        public ResponseDto GetByCode(string code)
+        {
+            try
+            {
+                Coupon obj = _db.Coupons.First(c => c.CouponCode == code);
+                _response.Result = _mapper.Map<CouponDto>(obj);
+
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccssful = false;
+                _response.Message = ex.Message;
+            }
+
+            return _response;
+        }
+
     }
 }
