@@ -123,8 +123,6 @@ namespace Fakesturant.Services.CouponAPI.Controllers
                 Coupon obj = _db.Coupons.First(c => c.CouponId == id);
                 _db.Coupons.Remove(obj);
                 _db.SaveChanges();
-
-        
             }
             catch (Exception ex)
             {
