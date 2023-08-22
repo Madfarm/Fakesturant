@@ -33,7 +33,7 @@ namespace Fakesturant.Services.CouponAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public object Get(int id) 
+        public object GetById(int id) 
         {
             try
             {
