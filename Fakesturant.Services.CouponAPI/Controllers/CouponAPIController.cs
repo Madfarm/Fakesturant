@@ -32,5 +32,21 @@ namespace Fakesturant.Services.CouponAPI.Controllers
             return null;
         }
 
+        [HttpGet("{id}")]
+        public object Get(int id) 
+        {
+            try
+            {
+                Coupon obj = _db.Coupons.First(c => c.CouponId == id);
+                return obj;
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return null;
+        }
+
     }
 }
