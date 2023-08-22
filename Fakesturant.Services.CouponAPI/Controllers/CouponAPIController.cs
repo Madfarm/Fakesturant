@@ -1,4 +1,5 @@
-﻿using Fakesturant.Services.CouponAPI.Models;
+﻿using AutoMapper;
+using Fakesturant.Services.CouponAPI.Models;
 using Fakesturant.Services.CouponAPI.Models.Dto;
 using Fakesturant.Services.CouponAPI.NewFolder;
 using Microsoft.AspNetCore.Http;
@@ -12,11 +13,13 @@ namespace Fakesturant.Services.CouponAPI.Controllers
     {
         private readonly AppDbContext _db;
         private ResponseDto _response;
+        private IMapper _mapper;
 
-        public CouponAPIController(AppDbContext db)
+        public CouponAPIController(AppDbContext db, IMapper mapper)
         {
             _db = db;
             _response = new ResponseDto();
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -25,7 +28,7 @@ namespace Fakesturant.Services.CouponAPI.Controllers
             try
             {
                 IEnumerable<Coupon> objList = _db.Coupons.ToList();
-                _response.Result = objList;
+                _response.Result = _mapper.Map<IEnumerable<CouponDto>>(objList);
             }
             catch (Exception ex) 
             {
@@ -42,8 +45,8 @@ namespace Fakesturant.Services.CouponAPI.Controllers
             try
             {
                 Coupon obj = _db.Coupons.First(c => c.CouponId == id);
-                _response.Result = obj;
-                return _response;
+                _response.Result = _mapper.Map<CouponDto>(obj);
+               
             }
             catch (Exception ex)
             {
