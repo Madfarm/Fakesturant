@@ -9,6 +9,7 @@ namespace Fakesturant.Services.CouponAPI.NewFolder
 
         public DbSet<Coupon> Coupons { get; set; }
 
+        //Seeding the db, small lift
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
