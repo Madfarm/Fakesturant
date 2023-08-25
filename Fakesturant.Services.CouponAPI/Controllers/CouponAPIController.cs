@@ -75,6 +75,11 @@ namespace Fakesturant.Services.CouponAPI.Controllers
             return _response;
         }
 
+        /// <summary>/
+        /// /
+        /// </summary>
+        /// <param name="couponDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public ResponseDto Post([FromBody] CouponDto couponDto)
         {
