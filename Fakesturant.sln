@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{406A0921-C09E-404B-9450-4349DA606174}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakesturant.Services.CouponAPI", "Fakesturant.Services.CouponAPI\Fakesturant.Services.CouponAPI.csproj", "{67703200-25EC-4864-8455-2574209106FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fakesturant.Services.CouponAPI", "Fakesturant.Services.CouponAPI\Fakesturant.Services.CouponAPI.csproj", "{67703200-25EC-4864-8455-2574209106FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakesturant.Web", "Fakesturant.Web\Fakesturant.Web.csproj", "{7EC8AF7D-6776-46A0-A93A-6AE20F64BBED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +25,17 @@ Global
 		{67703200-25EC-4864-8455-2574209106FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67703200-25EC-4864-8455-2574209106FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67703200-25EC-4864-8455-2574209106FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC8AF7D-6776-46A0-A93A-6AE20F64BBED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC8AF7D-6776-46A0-A93A-6AE20F64BBED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC8AF7D-6776-46A0-A93A-6AE20F64BBED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC8AF7D-6776-46A0-A93A-6AE20F64BBED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{67703200-25EC-4864-8455-2574209106FF} = {406A0921-C09E-404B-9450-4349DA606174}
+		{7EC8AF7D-6776-46A0-A93A-6AE20F64BBED} = {5749C637-2ADA-4C1A-84E0-61A2AF4F30C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D5E9E0B5-BA81-4A59-848E-273964D46E3B}
