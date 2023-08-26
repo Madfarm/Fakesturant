@@ -2,7 +2,6 @@
 using Fakesturant.Services.CouponAPI.Models;
 using Fakesturant.Services.CouponAPI.Models.Dto;
 using Fakesturant.Services.CouponAPI.NewFolder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fakesturant.Services.CouponAPI.Controllers
