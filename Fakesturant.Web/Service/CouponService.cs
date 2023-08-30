@@ -1,14 +1,15 @@
 ﻿using Fakesturant.Web.Models;
 using Fakesturant.Web.Models.DTOs;
+using Fakesturant.Web.Service.IService;
 using Fakesturant.Web.Utility;
 
 namespace Fakesturant.Web.Service
 {
     public class CouponService : ICouponService
     {
-        private readonly BaseService _baseService;
+        private readonly IBaseService _baseService;
 
-        public CouponService(BaseService baseService) 
+        public CouponService(IBaseService baseService) 
         {
             _baseService = baseService;
         }

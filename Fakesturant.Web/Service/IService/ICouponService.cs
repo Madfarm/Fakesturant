@@ -1,7 +1,7 @@
 ﻿using Fakesturant.Web.Models;
 using Fakesturant.Web.Models.DTOs;
 
-namespace Fakesturant.Web.Service
+namespace Fakesturant.Web.Service.IService
 {
     public interface ICouponService
     {
