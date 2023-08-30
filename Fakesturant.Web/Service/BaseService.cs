@@ -48,6 +48,36 @@ namespace Fakesturant.Web.Service
                     message.Method = HttpMethod.Get;
                     break;
             }
+
+            apiResponse = await client.SendAsync(message);
+
+            try
+            {
+                switch (apiResponse.StatusCode)
+                {
+                    case System.Net.HttpStatusCode.NotFound:
+                        return new() { IsSuccssful = false, Message = "Not Found" };
+                    case System.Net.HttpStatusCode.Forbidden:
+                        return new() { IsSuccssful = false, Message = "Access Denied" };
+                    case System.Net.HttpStatusCode.Unauthorized:
+                        return new() { IsSuccssful = false, Message = "Unauthorized" };
+                    case System.Net.HttpStatusCode.InternalServerError:
+                        return new() { IsSuccssful = false, Message = "Internal Server Error" };
+                    default:
+                        var apiContent = await apiResponse.Content.ReadAsStringAsync();
+                        var apiResponseDto = JsonConvert.DeserializeObject<ResponseDto>(apiContent);
+                        return apiResponseDto;
+
+                }
+            } catch (Exception ex)
+            {
+                var dto = new ResponseDto
+                {
+                    Message = ex.Message.ToString(),
+                    IsSuccssful = false
+                };
+                return dto;
+            }
         }
     }
 }
