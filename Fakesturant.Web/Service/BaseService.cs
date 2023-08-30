@@ -1,5 +1,6 @@
 ﻿using Fakesturant.Web.Models.DTOs;
 using Fakesturant.Web.Service.IService;
+using System.Text.Json.Serialization;
 
 namespace Fakesturant.Web.Service
 {
@@ -14,7 +15,17 @@ namespace Fakesturant.Web.Service
 
         public async Task<ResponseDto?> SendAsync(RequestDto requestDto)
         {
-            throw new NotImplementedException();
+            HttpClient client = _httpClientFactory.CreateClient("FakestruantAPI");
+            HttpRequestMessage message = new();
+            message.Headers.Add("Accept", "application/json");
+            // token to be implemented later
+
+            message.RequestUri = new Uri(requestDto.Url);
+
+            if(requestDto.Data !=  null)
+            {
+                //message.Content = new StringContent(JsonConverter.)
+            }
         }
     }
 }
