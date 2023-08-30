@@ -1,5 +1,6 @@
 ﻿using Fakesturant.Web.Models;
 using Fakesturant.Web.Models.DTOs;
+using Fakesturant.Web.Utility;
 
 namespace Fakesturant.Web.Service
 {
@@ -23,8 +24,12 @@ namespace Fakesturant.Web.Service
 
         public async Task<ResponseDto?> GetAllCoupon()
         {
-            throw new NotImplementedException();
-            //await _baseService.SendAsync()
+
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = Utility.SD.ApiType.GET,
+                Url = SD.CouponAPIBase + "/api/coupon"
+            });
         }
 
         public Task<ResponseDto?> GetCouponAsync(string CouponCode)
