@@ -32,9 +32,13 @@ namespace Fakesturant.Web.Service
             });
         }
 
-        public Task<ResponseDto?> GetCouponAsync(string CouponCode)
+        public async Task<ResponseDto?> GetCouponAsync(string CouponCode)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = Utility.SD.ApiType.GET,
+                Url = SD.CouponAPIBase + "/api/coupon/GetByCode/"+CouponCode
+            });
         }
 
         public Task<ResponseDto?> GetCouponByIdAsync(int id)
