@@ -1,5 +1,6 @@
 ﻿using Fakesturant.Web.Models.DTOs;
 using Fakesturant.Web.Service.IService;
+using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
 namespace Fakesturant.Web.Service
@@ -24,7 +25,7 @@ namespace Fakesturant.Web.Service
 
             if(requestDto.Data !=  null)
             {
-                //message.Content = new StringContent(JsonConverter.)
+                message.Content = new StringContent(JsonConvert.SerializeObject());
             }
         }
     }
