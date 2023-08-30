@@ -21,9 +21,10 @@ namespace Fakesturant.Web.Service
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDto?> GetAllCoupon()
+        public async Task<ResponseDto?> GetAllCoupon()
         {
             throw new NotImplementedException();
+            //await _baseService.SendAsync()
         }
 
         public Task<ResponseDto?> GetCouponAsync(string CouponCode)
