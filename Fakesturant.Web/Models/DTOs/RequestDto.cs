@@ -2,7 +2,7 @@
 
 namespace Fakesturant.Web.Models.DTOs
 {
-    //Set up request DTO
+    
     public class RequestDto
     {
         public ApiType ApiType { get; set; } = ApiType.GET;
