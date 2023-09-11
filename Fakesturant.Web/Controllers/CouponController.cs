@@ -4,7 +4,7 @@ namespace Fakesturant.Web.Controllers
 {
     public class CouponController : Controller
     {
-        public IActionResult Index()
+        public IActionResult CouponIndex()
         {
             return View();
         }
