@@ -32,7 +32,7 @@ namespace Fakesturant.Web.Service
             });
         }
 
-        public async Task<ResponseDto?> GetAllCoupon()
+        public async Task<ResponseDto?> GetAllCouponsAsync()
         {
 
             return await _baseService.SendAsync(new RequestDto()
