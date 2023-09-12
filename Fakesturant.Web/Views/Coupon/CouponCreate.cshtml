@@ -1,6 +1,6 @@
 ﻿@model CouponDto
 
-<form>
+<form asp-action="CoupounCreate">
     <br />
     <div class="container border p-3 border-1">
         <h1 class="text-dark text-center">Create Coupon</h1>
@@ -31,7 +31,7 @@
 
             <div class="col-5 offset-2">
 
-                <a class="btn-primary btn form-control ">Back to List</a>
+                <a asp-action="CouponIndex" class="btn-primary btn form-control ">Back to List</a>
             </div>
             <div class="col-5">
                 <input type="submit" value="Create" class="btn bg-success form-control text-dark" />
