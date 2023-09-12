@@ -214,10 +214,8 @@ body {
 
 hr {
     margin: 1rem 0;
-    color: inherit;
-    border: 0;
     border-top: var(--bs-border-width) solid;
-    opacity: .25
+    opacity: 1;
 }
 
 .h1,
