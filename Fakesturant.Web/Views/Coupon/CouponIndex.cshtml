@@ -1,4 +1,7 @@
-﻿<div class="card shadow border-0 mt-4">
+﻿@model IEnumerable<CouponDto>
+
+
+<div class="card shadow border-0 mt-4">
 	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
 		<div class="row">
 			<div class="col-12 text-center">
@@ -31,13 +34,14 @@
 				</tr>
 			</thead>
 			<tbody>
-
+				@foreach(var item in Model) 
+				{
 				<tr>
-					<td>
+					<td> @item.CouponCode
 					</td>
-					<td>
+					<td> @item.DiscountAmount
 					</td>
-					<td>
+					<td> @item.MinAmount
 					</td>
 					<td>
 						<a class="btn bg-danger text-dark">
@@ -45,7 +49,7 @@
 						</a>
 					</td>
 				</tr>
-
+				}
 			</tbody>
 		</table>
 
