@@ -31,5 +31,11 @@ namespace Fakesturant.Web.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CouponCreate(CouponDto couponDto)
+        {
+            return View();
+        }
     }
 }
