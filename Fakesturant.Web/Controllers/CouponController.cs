@@ -35,6 +35,14 @@ namespace Fakesturant.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> CouponCreate(CouponDto couponDto)
         {
+            CouponDto? newCoupon = new();
+            ResponseDto? response = await _couponService.CreateCouponAsync(couponDto);
+
+            if (response.IsSuccssful && response != null)
+            {
+                newCoupon = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
+            }
+
             return View();
         }
     }
