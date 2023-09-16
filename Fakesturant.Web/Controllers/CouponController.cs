@@ -4,6 +4,7 @@ using Fakesturant.Web.Service;
 using Fakesturant.Web.Service.IService;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Fakesturant.Web.Controllers
 {
@@ -51,7 +52,15 @@ namespace Fakesturant.Web.Controllers
 
         public async Task<IActionResult> CouponDelete(int couponId)
         {
-            return View();
+            ResponseDto? response = await _couponService.GetCouponByIdAsync(couponId);
+           S
+
+            if (response != null && response.IsSuccssful)
+            {
+                CouponDto? model = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
+                return View(model);
+            }
+            return NotFound();
         }
     }
 }
