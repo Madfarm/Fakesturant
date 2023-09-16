@@ -62,5 +62,18 @@ namespace Fakesturant.Web.Controllers
 
             return NotFound();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CouponDelete(CouponDto coupon)
+        {
+            ResponseDto? response = await _couponService.DeleteCouponAsync(coupon.CouponId);
+
+            if (response != null && response.IsSuccssful)
+            {
+                return RedirectToAction(nameof(CouponIndex));
+            }
+
+            return NotFound();
+        }
     }
 }
