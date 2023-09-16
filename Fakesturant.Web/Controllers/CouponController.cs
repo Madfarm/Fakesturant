@@ -48,5 +48,10 @@ namespace Fakesturant.Web.Controllers
 
             return View(couponDto);
         }
+
+        public async Task<IActionResult> CouponDelete(int couponId)
+        {
+            return View();
+        }
     }
 }
