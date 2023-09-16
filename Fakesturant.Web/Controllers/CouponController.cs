@@ -53,13 +53,13 @@ namespace Fakesturant.Web.Controllers
         public async Task<IActionResult> CouponDelete(int couponId)
         {
             ResponseDto? response = await _couponService.GetCouponByIdAsync(couponId);
-           S
 
             if (response != null && response.IsSuccssful)
             {
                 CouponDto? model = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
                 return View(model);
             }
+
             return NotFound();
         }
     }
