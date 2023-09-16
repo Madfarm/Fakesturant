@@ -37,17 +37,16 @@ namespace Fakesturant.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                CouponDto? newCoupon = new();
                 ResponseDto? response = await _couponService.CreateCouponAsync(couponDto);
 
                 if (response.IsSuccssful && response != null)
                 {
-                    newCoupon = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
+                    return RedirectToAction(nameof(CouponIndex));
                 }
 
             }
 
-            return View();
+            return View(couponDto);
         }
     }
 }
