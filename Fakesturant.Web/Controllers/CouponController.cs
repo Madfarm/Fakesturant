@@ -12,7 +12,7 @@ namespace Fakesturant.Web.Controllers
         private readonly ICouponService _couponService;
         public CouponController(ICouponService couponService)
         {
-            _couponService = couponService; 
+            _couponService = couponService;
         }
         public async Task<IActionResult> CouponIndex()
         {
@@ -35,12 +35,16 @@ namespace Fakesturant.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> CouponCreate(CouponDto couponDto)
         {
-            CouponDto? newCoupon = new();
-            ResponseDto? response = await _couponService.CreateCouponAsync(couponDto);
-
-            if (response.IsSuccssful && response != null)
+            if (ModelState.IsValid)
             {
-                newCoupon = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
+                CouponDto? newCoupon = new();
+                ResponseDto? response = await _couponService.CreateCouponAsync(couponDto);
+
+                if (response.IsSuccssful && response != null)
+                {
+                    newCoupon = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
+                }
+
             }
 
             return View();
