@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Fakesturant.Services.CouponAPI.Controllers
 {
-    [Route("api/cou3pon")]
+    [Route("api/coupon")]
     [ApiController]
     public class CouponAPIController : ControllerBase
     {
