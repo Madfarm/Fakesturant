@@ -24,6 +24,10 @@ namespace Fakesturant.Web.Controllers
             {
                 list = JsonConvert.DeserializeObject<List<CouponDto>>(Convert.ToString(response.Result));
             }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
 
             return View(list);
         }
@@ -44,6 +48,10 @@ namespace Fakesturant.Web.Controllers
                 {
                     return RedirectToAction(nameof(CouponIndex));
                 }
+                else
+                {
+                    TempData["error"] = response?.Message;
+                }
 
             }
 
@@ -59,6 +67,10 @@ namespace Fakesturant.Web.Controllers
                 CouponDto? model = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
                 return View(model);
             }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
 
             return NotFound();
         }
@@ -71,6 +83,10 @@ namespace Fakesturant.Web.Controllers
             if (response != null && response.IsSuccssful)
             {
                 return RedirectToAction(nameof(CouponIndex));
+            }
+            else
+            {
+                TempData["error"] = response?.Message;
             }
 
             return View(coupon);
