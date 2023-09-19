@@ -46,6 +46,7 @@ namespace Fakesturant.Web.Controllers
 
                 if (response.IsSuccssful && response != null)
                 {
+                    TempData["success"] = "Coupon created successfully";
                     return RedirectToAction(nameof(CouponIndex));
                 }
                 else
@@ -82,6 +83,7 @@ namespace Fakesturant.Web.Controllers
 
             if (response != null && response.IsSuccssful)
             {
+                TempData["success"] = "Coupon deleted successfully";
                 return RedirectToAction(nameof(CouponIndex));
             }
             else
