@@ -1,9 +1,10 @@
 ﻿@model CouponDto
 
-<form asp-action="CouponCreate">
+<form asp-action="CouponDelete">
     <br />
     <div class="container border p-3 border-2">
         <h1 class="text-dark text-center">Delete Coupon?</h1>
+
         <input asp-for="CouponId" hidden />
         <hr />
         <div class="row">
@@ -34,7 +35,7 @@
                 <a asp-action="CouponIndex" class="btn-primary btn form-control ">Back to List</a>
             </div>
             <div class="col-5">
-                <input type="submit" value="Delete" class="btn bg-danger form-control text-dark" />
+                <input type="submit" class="btn bg-danger form-control text-dark" />
 
             </div>
 

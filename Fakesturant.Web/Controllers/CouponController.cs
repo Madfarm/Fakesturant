@@ -73,7 +73,7 @@ namespace Fakesturant.Web.Controllers
                 return RedirectToAction(nameof(CouponIndex));
             }
 
-            return NotFound();
+            return View(coupon);
         }
     }
 }
