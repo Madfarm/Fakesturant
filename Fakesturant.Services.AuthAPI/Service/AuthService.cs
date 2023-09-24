@@ -18,14 +18,45 @@ namespace Fakesturant.Services.AuthAPI.Service
             _userManager = userManager;
             _roleManager = roleManager; 
         }
-        public Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto)
+        public async Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto)
         {
             throw new NotImplementedException();
         }
 
-        public Task<UserDto> Regiser(RegistrationRequestDto registrationRequestDto)
+        public async Task<UserDto> Regiser(RegistrationRequestDto registrationRequestDto)
         {
-            throw new NotImplementedException();
+            ApplicationUser user = new()
+            {
+                UserName = registrationRequestDto.Email,
+                Email = registrationRequestDto.Email,
+                Name = registrationRequestDto.Name,
+                PhoneNumber = registrationRequestDto.PhoneNumber
+            };
+
+            try
+            {
+                var result = await _userManager.CreateAsync(user, registrationRequestDto.Password); 
+                if (result.Succeeded)
+                {
+                    var userToReturn = _db.ApplicationUsers.First(u => u.UserName == registrationRequestDto.Email);
+
+                    UserDto userDto = new()
+                    {
+                        Email = userToReturn.Email,
+                        Name = userToReturn.Name,
+                        ID = userToReturn.Id,
+                        PhoneNumber = userToReturn.PhoneNumber
+                    };
+
+                    return userDto;
+                }
+            }
+            catch (Exception e)
+            {
+                
+            }
+
+            return new UserDto();
         }
     }
 }
