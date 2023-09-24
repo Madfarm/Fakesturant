@@ -1,6 +1,4 @@
-﻿using Fakesturant.Services.AuthAPI.Models;
-using Fakesturant.Services.AuthAPI.Models.Dto;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fakesturant.Services.AuthAPI.Controllers
@@ -10,16 +8,13 @@ namespace Fakesturant.Services.AuthAPI.Controllers
     public class AuthAPIController : ControllerBase
     {
         [HttpPost("register")]
-        public async Task<IActionResult> Register(RegistrationRequestDto registrationRequestDto)
+        public async Task<IActionResult> Register()
         {
-            ApplicationUser user = new()
-            {
-                
-            };
+            return Ok();
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginRequestDto loginRequestDto)
+        public async Task<IActionResult> Login()
         {
             return Ok();
         }
