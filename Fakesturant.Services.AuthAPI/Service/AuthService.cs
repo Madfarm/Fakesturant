@@ -23,7 +23,7 @@ namespace Fakesturant.Services.AuthAPI.Service
             throw new NotImplementedException();
         }
 
-        public async Task<UserDto> Register(RegistrationRequestDto registrationRequestDto)
+        public async Task<string> Register(RegistrationRequestDto registrationRequestDto)
         {
             ApplicationUser user = new()
             {
@@ -48,7 +48,11 @@ namespace Fakesturant.Services.AuthAPI.Service
                         PhoneNumber = userToReturn.PhoneNumber
                     };
 
-                    return userDto;
+                    return "";
+                }
+                else
+                {
+                    return result.Errors.FirstOrDefault().Description;
                 }
             }
             catch (Exception e)
@@ -56,7 +60,7 @@ namespace Fakesturant.Services.AuthAPI.Service
                 
             }
 
-            return new UserDto();
+            return "Error Encountered";
         }
     }
 }

@@ -25,6 +25,8 @@ namespace Fakesturant.Services.AuthAPI.Controllers
             if (!string.IsNullOrEmpty(errorMessage))
             {
                 _response.IsSuccessful = false;
+                _response.Message = errorMessage;
+                return BadRequest(_response);
             }
         }
 
