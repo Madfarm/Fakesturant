@@ -23,7 +23,7 @@ namespace Fakesturant.Services.AuthAPI.Service
             throw new NotImplementedException();
         }
 
-        public async Task<UserDto> Regiser(RegistrationRequestDto registrationRequestDto)
+        public async Task<UserDto> Register(RegistrationRequestDto registrationRequestDto)
         {
             ApplicationUser user = new()
             {
