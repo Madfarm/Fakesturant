@@ -28,6 +28,8 @@ namespace Fakesturant.Services.AuthAPI.Controllers
                 _response.Message = errorMessage;
                 return BadRequest(_response);
             }
+
+            return Ok(_response);
         }
 
         [HttpPost("login")]
