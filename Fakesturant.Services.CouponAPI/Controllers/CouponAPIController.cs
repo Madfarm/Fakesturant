@@ -31,7 +31,7 @@ namespace Fakesturant.Services.CouponAPI.Controllers
             }
             catch (Exception ex) 
             {
-                _response.IsSuccssful = false;
+                _response.IsSuccessful = false;
                 _response.Message = ex.Message;
             }
 
@@ -49,7 +49,7 @@ namespace Fakesturant.Services.CouponAPI.Controllers
             }
             catch (Exception ex)
             {
-                _response.IsSuccssful = false;
+                _response.IsSuccessful = false;
                 _response.Message = ex.Message;
             }
 
@@ -67,7 +67,7 @@ namespace Fakesturant.Services.CouponAPI.Controllers
             }
             catch (Exception ex)
             {
-                _response.IsSuccssful = false;
+                _response.IsSuccessful = false;
                 _response.Message = ex.Message;
             }
 
@@ -88,7 +88,7 @@ namespace Fakesturant.Services.CouponAPI.Controllers
             }
             catch (Exception ex)
             {
-                _response.IsSuccssful = false;
+                _response.IsSuccessful = false;
                 _response.Message = ex.Message;
             }
 
@@ -108,7 +108,7 @@ namespace Fakesturant.Services.CouponAPI.Controllers
             }
             catch (Exception ex)
             {
-                _response.IsSuccssful = false;
+                _response.IsSuccessful = false;
                 _response.Message = ex.Message;
             }
 
@@ -126,7 +126,7 @@ namespace Fakesturant.Services.CouponAPI.Controllers
             }
             catch (Exception ex)
             {
-                _response.IsSuccssful = false;
+                _response.IsSuccessful = false;
                 _response.Message = ex.Message;
             }
 

@@ -10,18 +10,22 @@ namespace Fakesturant.Services.AuthAPI.Controllers
     public class AuthAPIController : ControllerBase
     {
         private readonly IAuthService _authService;
-        protected ResponseDto _responseDto;
+        protected ResponseDto _response;
 
         public AuthAPIController(IAuthService authService)
         {
             _authService = authService;
-            _responseDto = new();
+            _response = new();
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegistrationRequestDto model)
         {
             var errorMessage = await _authService.Register(model);
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                _response.IsSuccessful = false;
+            }
         }
 
         [HttpPost("login")]
