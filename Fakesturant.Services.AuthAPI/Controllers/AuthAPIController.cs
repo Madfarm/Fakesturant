@@ -32,6 +32,9 @@ namespace Fakesturant.Services.AuthAPI.Controllers
             return Ok(_response);
         }
 
+
+        
+        //Missing attributes
         [HttpPost("login")]
         public async Task<IActionResult> Login()
         {
