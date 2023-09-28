@@ -2,6 +2,7 @@
 using Fakesturant.Services.AuthAPI.Service.IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 namespace Fakesturant.Services.AuthAPI.Controllers
 {
@@ -46,6 +47,9 @@ namespace Fakesturant.Services.AuthAPI.Controllers
                 _response.Message = "Username or password is incorrect";
                 return BadRequest(_response);
             }
+
+            _response.Result = loginResponse;
+            return Ok(_response);
         }
 
     }
