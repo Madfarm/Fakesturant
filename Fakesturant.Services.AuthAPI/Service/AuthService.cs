@@ -29,6 +29,21 @@ namespace Fakesturant.Services.AuthAPI.Service
                 return new LoginResponseDto() { User = null, Token = "" };
             }
 
+            UserDto userDto = new()
+            {
+                Email = user.Email,
+                ID = user.Id,
+                Name = user.Name,
+                PhoneNumber = user.PhoneNumber
+            };
+
+            LoginResponseDto loginResponseDto = new()
+            {
+                User = userDto,
+                Token = ""
+            };
+
+            return loginResponseDto;
             
         }
 
