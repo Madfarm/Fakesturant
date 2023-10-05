@@ -34,13 +34,27 @@ namespace Fakesturant.Services.AuthAPI.Controllers
         }
 
 
-        
-        //Missing attributes
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDto model)
         {
             var loginResponse = await _authService.Login(model);
             
+            if (loginResponse.User == null)
+            {
+                _response.IsSuccessful = false;
+                _response.Message = "Username or password is incorrect";
+                return BadRequest(_response);
+            }
+
+            _response.Result = loginResponse;
+            return Ok(_response);
+        }
+
+        [HttpPost("assign-role")]
+        public async Task<IActionResult> RoleAssign([FromBody] RegistrationRequestDto model)
+        {
+            var loginResponse = await _authService.Login(model);
+
             if (loginResponse.User == null)
             {
                 _response.IsSuccessful = false;
