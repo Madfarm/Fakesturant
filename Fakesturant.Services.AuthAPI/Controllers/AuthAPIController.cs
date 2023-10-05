@@ -51,18 +51,18 @@ namespace Fakesturant.Services.AuthAPI.Controllers
         }
 
         [HttpPost("assign-role")]
-        public async Task<IActionResult> RoleAssign([FromBody] RegistrationRequestDto model)
+        public async Task<IActionResult> AssignRole([FromBody] RegistrationRequestDto model)
         {
-            var loginResponse = await _authService.Login(model);
+            var assignRoleSuccessful = await _authService.AssignRole(model.Email, model.Role.ToUpper());
 
-            if (loginResponse.User == null)
+            if (!assignRoleSuccessful)
             {
                 _response.IsSuccessful = false;
-                _response.Message = "Username or password is incorrect";
+                _response.Message = "There was an error";
                 return BadRequest(_response);
             }
 
-            _response.Result = loginResponse;
+
             return Ok(_response);
         }
 
