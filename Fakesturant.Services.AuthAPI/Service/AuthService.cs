@@ -44,7 +44,7 @@ namespace Fakesturant.Services.AuthAPI.Service
             LoginResponseDto loginResponseDto = new()
             {
                 User = userDto,
-                Token = ""
+                Token = token
             };
 
             return loginResponseDto;
