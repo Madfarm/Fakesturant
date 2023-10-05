@@ -31,6 +31,8 @@ namespace Fakesturant.Services.AuthAPI.Service
                 return new LoginResponseDto() { User = null, Token = "" };
             }
 
+            var token = _jwtTokenGenerator.GenerateToken(user);
+
             UserDto userDto = new()
             {
                 Email = user.Email,
