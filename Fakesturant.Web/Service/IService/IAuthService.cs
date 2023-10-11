@@ -5,8 +5,8 @@ namespace Fakesturant.Web.Service.IService
 {
     public interface IAuthService
     {
-        Task<ResponseDto?> Register(RegistrationRequestDto request);
-        Task<ResponseDto?> Login(LoginRequestDto request);
-        Task<ResponseDto?> AssignRole(RegistrationRequestDto request);
+        Task<ResponseDto?> RegisterAsync(RegistrationRequestDto registerRequestDto);
+        Task<ResponseDto?> LoginAsync(LoginRequestDto loginRequestDto);
+        Task<ResponseDto?> AssignRoleAsync(RegistrationRequestDto registerRequestDto);
     }
 }

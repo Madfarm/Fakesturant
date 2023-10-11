@@ -1,24 +1,37 @@
 ﻿using Fakesturant.Web.Models;
 using Fakesturant.Web.Models.DTOs;
 using Fakesturant.Web.Service.IService;
+using Fakesturant.Web.Utility;
 
 namespace Fakesturant.Web.Service
 {
     public class AuthService : IAuthService
     {
-        public Task<ResponseDto?> AssignRole(RegistrationRequestDto request)
+        private readonly IBaseService _baseService;
+
+        public AuthService(IBaseService baseService)
+        {
+            _baseService = baseService;
+        }
+
+        public Task<ResponseDto?> AssignRoleAsync(RegistrationRequestDto registerRequestDto)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDto?> Login(LoginRequestDto request)
+        public Task<ResponseDto?> LoginAsync(LoginRequestDto loginRequestDto)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDto?> Register(RegistrationRequestDto request)
+        public async Task<ResponseDto?> RegisterAsync(RegistrationRequestDto registerRequestDto)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = Utility.SD.ApiType.POST,
+                Url = SD.AuthAPIBase + "/login",
+                Data = registerRequestDto
+            });
         }
     }
 }
