@@ -16,12 +16,22 @@ namespace Fakesturant.Web.Service
 
         public async Task<ResponseDto?> AssignRoleAsync(RegistrationRequestDto registerRequestDto)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = Utility.SD.ApiType.POST,
+                Url = SD.AuthAPIBase + "/api/auth/assign-role",
+                Data = registerRequestDto
+            });
         }
 
         public async Task<ResponseDto?> LoginAsync(LoginRequestDto loginRequestDto)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = Utility.SD.ApiType.POST,
+                Url = SD.AuthAPIBase + "/api/auth/login",
+                Data = loginRequestDto
+            });
         }
 
         public async Task<ResponseDto?> RegisterAsync(RegistrationRequestDto registerRequestDto)

@@ -16,6 +16,7 @@ SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<ICouponService, CouponService>();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
