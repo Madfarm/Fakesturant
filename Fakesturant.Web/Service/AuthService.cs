@@ -14,12 +14,12 @@ namespace Fakesturant.Web.Service
             _baseService = baseService;
         }
 
-        public Task<ResponseDto?> AssignRoleAsync(RegistrationRequestDto registerRequestDto)
+        public async Task<ResponseDto?> AssignRoleAsync(RegistrationRequestDto registerRequestDto)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDto?> LoginAsync(LoginRequestDto loginRequestDto)
+        public async Task<ResponseDto?> LoginAsync(LoginRequestDto loginRequestDto)
         {
             throw new NotImplementedException();
         }
@@ -29,7 +29,7 @@ namespace Fakesturant.Web.Service
             return await _baseService.SendAsync(new RequestDto()
             {
                 ApiType = Utility.SD.ApiType.POST,
-                Url = SD.AuthAPIBase + "/login",
+                Url = SD.AuthAPIBase + "/api/auth/register",
                 Data = registerRequestDto
             });
         }
