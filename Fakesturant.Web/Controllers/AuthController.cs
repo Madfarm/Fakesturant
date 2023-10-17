@@ -23,8 +23,7 @@ namespace Fakesturant.Web.Controllers
         [HttpGet]
         public IActionResult Register()
         {
-            RegistrationRequestDto registrationRequestDto = new();
-            return View(registrationRequestDto);
+            return View();
         }
 
     }
