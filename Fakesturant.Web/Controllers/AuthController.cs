@@ -1,4 +1,5 @@
-﻿using Fakesturant.Web.Service.IService;
+﻿using Fakesturant.Web.Models;
+using Fakesturant.Web.Service.IService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fakesturant.Web.Controllers
@@ -11,6 +12,20 @@ namespace Fakesturant.Web.Controllers
         {
             _authService = authService;
         }
-        
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            LoginRequestDto loginRequestDto = new();
+            return View(loginRequestDto);
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            RegistrationRequestDto registrationRequestDto = new();
+            return View(registrationRequestDto);
+        }
+
     }
 }
