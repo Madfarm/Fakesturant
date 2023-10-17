@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Fakesturant.Web.Service.IService;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Fakesturant.Web.Controllers
 {
     public class AuthController : Controller
     {
-        public IActionResult Index()
+        private readonly IAuthService _authService;
+
+        public AuthController(IAuthService authService)
         {
-            return View();
+            _authService = authService;
         }
+        
     }
 }
