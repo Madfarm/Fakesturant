@@ -70,6 +70,16 @@ namespace Fakesturant.Web.Controllers
             return View(obj);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginRequestDto obj)
+        {
+            ResponseDto result = await _authService.LoginAsync(obj);
+
+
+
+            return View(obj);
+        }
+
 
         public IActionResult Logout()
         {
