@@ -4,6 +4,7 @@ using Fakesturant.Web.Service.IService;
 using Fakesturant.Web.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
 
 namespace Fakesturant.Web.Controllers
 {
@@ -42,7 +43,7 @@ namespace Fakesturant.Web.Controllers
             ResponseDto result = await _authService.RegisterAsync(obj);
             ResponseDto assignRole;
 
-            if (result != null && result.IsSuccssful)
+            if (result != null && result.IsSuccessful)
             {
                 if (string.IsNullOrEmpty(obj.Role))
                 {
@@ -51,7 +52,7 @@ namespace Fakesturant.Web.Controllers
 
                 assignRole = await _authService.AssignRoleAsync(obj);
 
-                if (assignRole != null && assignRole.IsSuccssful)
+                if (assignRole != null && assignRole.IsSuccessful)
                 {
                     TempData["success"] = "Registration Successful";
                     return RedirectToAction(nameof(Login));
@@ -75,9 +76,19 @@ namespace Fakesturant.Web.Controllers
         {
             ResponseDto result = await _authService.LoginAsync(obj);
 
+            if (result != null && result.IsSuccessful)
+            {
+                LoginResponseDto loginResponse = JsonConvert.DeserializeObject<LoginResponseDto>(Convert.ToString(result.Result));
 
+                
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("CustomerError", result.Message);
+                return View(obj);
+            }
 
-            return View(obj);
         }
 
 

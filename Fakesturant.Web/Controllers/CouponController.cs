@@ -20,7 +20,7 @@ namespace Fakesturant.Web.Controllers
             List<CouponDto>? list = new();
             ResponseDto? response = await _couponService.GetAllCouponsAsync();
 
-            if (response != null && response.IsSuccssful)
+            if (response != null && response.IsSuccessful)
             {
                 list = JsonConvert.DeserializeObject<List<CouponDto>>(Convert.ToString(response.Result));
             }
@@ -43,8 +43,8 @@ namespace Fakesturant.Web.Controllers
             if (ModelState.IsValid)
             {
                 ResponseDto? response = await _couponService.CreateCouponAsync(couponDto);
-
-                if (response.IsSuccssful && response != null)
+                    
+                if (response.IsSuccessful && response != null)
                 {
                     TempData["success"] = "Coupon created successfully";
                     return RedirectToAction(nameof(CouponIndex));
@@ -63,7 +63,7 @@ namespace Fakesturant.Web.Controllers
         {
             ResponseDto? response = await _couponService.GetCouponByIdAsync(couponId);
 
-            if (response != null && response.IsSuccssful)
+            if (response != null && response.IsSuccessful)
             {
                 CouponDto? model = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
                 return View(model);
@@ -81,7 +81,7 @@ namespace Fakesturant.Web.Controllers
         {
             ResponseDto? response = await _couponService.DeleteCouponAsync(coupon.CouponId);
 
-            if (response != null && response.IsSuccssful)
+            if (response != null && response.IsSuccessful)
             {
                 TempData["success"] = "Coupon deleted successfully";
                 return RedirectToAction(nameof(CouponIndex));

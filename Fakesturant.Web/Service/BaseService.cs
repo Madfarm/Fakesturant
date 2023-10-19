@@ -56,13 +56,13 @@ namespace Fakesturant.Web.Service
                 switch (apiResponse.StatusCode)
                 {
                     case System.Net.HttpStatusCode.NotFound:
-                        return new() { IsSuccssful = false, Message = "Not Found" };
+                        return new() { IsSuccessful = false, Message = "Not Found" };
                     case System.Net.HttpStatusCode.Forbidden:
-                        return new() { IsSuccssful = false, Message = "Access Denied" };
+                        return new() { IsSuccessful = false, Message = "Access Denied" };
                     case System.Net.HttpStatusCode.Unauthorized:
-                        return new() { IsSuccssful = false, Message = "Unauthorized" };
+                        return new() { IsSuccessful = false, Message = "Unauthorized" };
                     case System.Net.HttpStatusCode.InternalServerError:
-                        return new() { IsSuccssful = false, Message = "Internal Server Error" };
+                        return new() { IsSuccessful = false, Message = "Internal Server Error" };
                     default:
                         var apiContent = await apiResponse.Content.ReadAsStringAsync();
                         var apiResponseDto = JsonConvert.DeserializeObject<ResponseDto>(apiContent);
@@ -74,7 +74,7 @@ namespace Fakesturant.Web.Service
                 var dto = new ResponseDto
                 {
                     Message = ex.Message.ToString(),
-                    IsSuccssful = false
+                    IsSuccessful = false
                 };
                 return dto;
             }
