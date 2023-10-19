@@ -67,7 +67,7 @@ namespace Fakesturant.Web.Controllers
             };
             ViewBag.RoleList = roleList;
 
-            return View();
+            return View(obj);
         }
 
 
