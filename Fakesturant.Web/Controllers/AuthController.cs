@@ -35,7 +35,20 @@ namespace Fakesturant.Web.Controllers
             return View();
         }
 
-        
+        [HttpPost]
+        public IActionResult Register(RegistrationRequestDto obj)
+        {
+            var roleList = new List<SelectListItem>()
+            {
+                new SelectListItem{ Text = SD.RoleAdmin, Value = SD.RoleAdmin },
+                new SelectListItem{ Text = SD.RoleCustomer, Value = SD.RoleCustomer }
+            };
+
+            ViewBag.RoleList = roleList;
+            return View();
+        }
+
+
         public IActionResult Logout()
         {
             return View();
