@@ -81,7 +81,7 @@ namespace Fakesturant.Web.Controllers
             if (result != null && result.IsSuccessful)
             {
                 LoginResponseDto loginResponse = JsonConvert.DeserializeObject<LoginResponseDto>(Convert.ToString(result.Result));
-
+                _tokenProvider.SetToken(loginResponse.Token);
                 
                 return RedirectToAction("Index", "Home");
             }
