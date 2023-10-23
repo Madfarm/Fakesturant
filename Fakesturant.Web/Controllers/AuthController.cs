@@ -86,7 +86,8 @@ namespace Fakesturant.Web.Controllers
             {
                 LoginResponseDto loginResponse = JsonConvert.DeserializeObject<LoginResponseDto>(Convert.ToString(result.Result));
                 _tokenProvider.SetToken(loginResponse.Token);
-                
+
+                await SignInUser(loginResponse);
                 return RedirectToAction("Index", "Home");
             }
             else
