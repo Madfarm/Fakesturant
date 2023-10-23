@@ -1,5 +1,6 @@
 ﻿using Fakesturant.Web.Service.IService;
 using Fakesturant.Web.Utility;
+using Newtonsoft.Json.Linq;
 
 namespace Fakesturant.Web.Service
 {
@@ -13,7 +14,7 @@ namespace Fakesturant.Web.Service
         }
         public void ClearToken()
         {
-            throw new NotImplementedException();
+            _contextAccessor.HttpContext?.Response.Cookies.Delete(SD.TokenCookie);
         }
 
         public string? GetToken()
