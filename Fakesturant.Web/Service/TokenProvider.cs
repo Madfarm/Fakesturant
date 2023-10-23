@@ -1,4 +1,5 @@
 ﻿using Fakesturant.Web.Service.IService;
+using Fakesturant.Web.Utility;
 
 namespace Fakesturant.Web.Service
 {
@@ -22,7 +23,7 @@ namespace Fakesturant.Web.Service
 
         public void SetToken(string token)
         {
-            _contextAccessor.HttpContext?.Response.Cookies.Append();
+            _contextAccessor.HttpContext?.Response.Cookies.Append(SD.TokenCookie, token);
         }
     }
 }
