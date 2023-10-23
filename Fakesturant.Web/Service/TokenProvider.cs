@@ -22,7 +22,7 @@ namespace Fakesturant.Web.Service
 
         public void SetToken(string token)
         {
-            throw new NotImplementedException();
+            _contextAccessor.HttpContext?.Response.Cookies.Append();
         }
     }
 }
