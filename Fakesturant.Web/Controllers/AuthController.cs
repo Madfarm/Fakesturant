@@ -96,7 +96,7 @@ namespace Fakesturant.Web.Controllers
             }
             else
             {
-                ModelState.AddModelError("CustomerError", result.Message);
+                TempData["error"] = result.Message;
                 return View(obj);
             }
 
