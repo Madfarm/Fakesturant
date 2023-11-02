@@ -65,6 +65,10 @@ namespace Fakesturant.Web.Controllers
                       
                 }
             }
+            else
+            {
+                TempData["error"] = result.Message;
+            }
 
 
             var roleList = new List<SelectListItem>()
