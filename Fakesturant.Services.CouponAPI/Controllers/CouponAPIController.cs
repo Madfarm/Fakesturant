@@ -2,12 +2,14 @@
 using Fakesturant.Services.CouponAPI.Models;
 using Fakesturant.Services.CouponAPI.Models.Dto;
 using Fakesturant.Services.CouponAPI.NewFolder;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fakesturant.Services.CouponAPI.Controllers
 {
     [Route("api/coupon")]
     [ApiController]
+    [Authorize]
     public class CouponAPIController : ControllerBase
     {
         private readonly AppDbContext _db;
