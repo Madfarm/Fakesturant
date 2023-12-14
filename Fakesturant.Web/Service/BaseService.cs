@@ -11,10 +11,12 @@ namespace Fakesturant.Web.Service
     public class BaseService : IBaseService
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly TokenProvider _tokenProvider;
 
-        public BaseService(IHttpClientFactory httpClientFactory)
+        public BaseService(IHttpClientFactory httpClientFactory, TokenProvider tokenProvider)
         {
             _httpClientFactory = httpClientFactory;
+            _tokenProvider = tokenProvider;
         }
 
         public async Task<ResponseDto?> SendAsync(RequestDto requestDto, bool withBearer = true)
@@ -22,7 +24,11 @@ namespace Fakesturant.Web.Service
             HttpClient client = _httpClientFactory.CreateClient("FakesturantAPI");
             HttpRequestMessage message = new();
             message.Headers.Add("Accept", "application/json");
-            // token to be implemented later
+            
+            if(withBearer)
+            {
+                
+            }
 
             message.RequestUri = new Uri(requestDto.Url);
 
