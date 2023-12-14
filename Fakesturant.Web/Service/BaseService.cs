@@ -17,7 +17,7 @@ namespace Fakesturant.Web.Service
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<ResponseDto?> SendAsync(RequestDto requestDto)
+        public async Task<ResponseDto?> SendAsync(RequestDto requestDto, bool withBearer = true)
         {
             HttpClient client = _httpClientFactory.CreateClient("FakesturantAPI");
             HttpRequestMessage message = new();
