@@ -38,21 +38,21 @@ builder.Services.AddSwaggerGen(option =>
     option.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
-        new OpenApiSecurityScheme
-        {
-            Reference = new OpenApiReference
+            new OpenApiSecurityScheme
             {
-                Type=ReferenceType.SecurityScheme,
-                Id=JwtBearerDefaults.AuthenticationScheme
-            }
-        }, new string[]{}
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id=JwtBearerDefaults.AuthenticationScheme
+                }
+            }, new string[]{}
         }
     });
 });
 
 var secret = builder.Configuration.GetValue<string>("ApiSettings:JwtOptions:Secret");
-var issuer = builder.Configuration.GetValue<string>("AppSettings:JwtOptions:Issuer");
-var audience = builder.Configuration.GetValue<string>("AppSettings:JwtOptions:Audience");
+var issuer = builder.Configuration.GetValue<string>("ApiSettings:JwtOptions:Issuer");
+var audience = builder.Configuration.GetValue<string>("ApiSettings:JwtOptions:Audience");
 
 var key = Encoding.ASCII.GetBytes(secret);
 
