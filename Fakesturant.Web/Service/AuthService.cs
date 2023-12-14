@@ -31,7 +31,7 @@ namespace Fakesturant.Web.Service
                 ApiType = Utility.SD.ApiType.POST,
                 Url = SD.AuthAPIBase + "/api/auth/login",
                 Data = loginRequestDto
-            });
+            }, withBearer: false);
         }
 
         public async Task<ResponseDto?> RegisterAsync(RegistrationRequestDto registerRequestDto)
@@ -41,7 +41,7 @@ namespace Fakesturant.Web.Service
                 ApiType = Utility.SD.ApiType.POST,
                 Url = SD.AuthAPIBase + "/api/auth/register",
                 Data = registerRequestDto
-            });
+            }, withBearer: false);
         }
     }
 }
