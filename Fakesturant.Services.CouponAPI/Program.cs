@@ -1,5 +1,6 @@
 using AutoMapper;
 using Fakesturant.Services.CouponAPI;
+using Fakesturant.Services.CouponAPI.Extensions;
 using Fakesturant.Services.CouponAPI.NewFolder;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -50,28 +51,9 @@ builder.Services.AddSwaggerGen(option =>
     });
 });
 
-var secret = builder.Configuration.GetValue<string>("ApiSettings:JwtOptions:Secret");
-var issuer = builder.Configuration.GetValue<string>("ApiSettings:JwtOptions:Issuer");
-var audience = builder.Configuration.GetValue<string>("ApiSettings:JwtOptions:Audience");
 
-var key = Encoding.ASCII.GetBytes(secret);
+builder.AddAppAuthentication();
 
-builder.Services.AddAuthentication(o =>
-{
-    o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(x =>
-{
-    x.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = true,
-        ValidIssuer = issuer,
-        ValidAudience = audience,
-        ValidateAudience = true
-    };
-});
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
